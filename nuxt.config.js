@@ -149,6 +149,9 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
+    vendor: [
+      'socket.io-client'
+    ],
     splitChunks: {
       layouts: true,
       pages: true,
