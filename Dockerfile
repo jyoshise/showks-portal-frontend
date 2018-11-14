@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 # Bundle app source
 COPY src .
 RUN yarn && yarn build
-RUN /amsy810.txt
+RUN touch /amsy810.txt
 
 EXPOSE 3000
 
