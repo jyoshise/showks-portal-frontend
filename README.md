@@ -1,8 +1,11 @@
 # showks-portal
 
-test03
-
 > A portal app for showKs
+
+## Branch
+
+Master branch is protected!
+Create another branch and make a PR :)
 
 ## Build Setup
 
