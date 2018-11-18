@@ -1,21 +1,33 @@
 <template>
   <section class="section">
-    <div id="wrapper" class="container">
+    <div 
+      id="wrapper" 
+      class="container">
       <article class="media">
         <div class="media-content">
           <div class="field is-grouped">
             <p class="control is-expanded">
-              <input class="input" type="text" v-model="message" @keyup.enter="sendMessage" placeholder="message">
+              <input 
+                v-model="message" 
+                class="input" 
+                type="text" 
+                placeholder="message" 
+                @keyup.enter="sendMessage">
             </p>
             <p class="control">
-              <button class="button is-info" @click="sendMessage">
+              <button 
+                class="button is-info" 
+                @click="sendMessage">
                 Send
               </button>
             </p>
           </div>
         </div>
       </article>
-      <article class="media" v-for="(message, index) in reverseMessages" :key="index">
+      <article 
+        v-for="(message, index) in reverseMessages" 
+        :key="index" 
+        class="media">
         <figure class="media-left">
           <p class="image is-64x64">
             <img src="https://bulma.io/images/placeholders/128x128.png">
@@ -33,7 +45,10 @@
           </div>
         </div>
       </article>
-      <b-loading :is-full-page="false" :active.sync="isLoading" :can-cancel="false"></b-loading>
+      <b-loading 
+        :is-full-page="false" 
+        :active.sync="isLoading" 
+        :can-cancel="false"/>
     </div>
   </section>
 </template>
@@ -54,7 +69,7 @@ export default {
     // 配列の後ろ（新しいもの）から順に表示させたいので反転させる
     reverseMessages: function() {
       return this.messages.slice().reverse()
-    },
+    }
   },
   mounted() {
     // VueインスタンスがDOMにマウントされたらSocketインスタンスを生成する
@@ -62,7 +77,7 @@ export default {
 
     // サーバー側で保持しているメッセージを受信する
     this.socket.on('new-message', message => {
-        this.messages.push( message || {} )
+      this.messages.push(message || {})
     })
 
     // コンポーネントがマウントされてから1秒間はローディングする
@@ -77,15 +92,18 @@ export default {
         return
       }
 
-      let now = new Date()  // 現在時刻（世界標準時）を取得
+      let now = new Date() // 現在時刻（世界標準時）を取得
       now.setTime(now.getTime() + 1000 * 60 * 60 * 9) // 日本時間に変換
-      now = now.toJSON().split('T')[1].slice(0, 5)  // 時刻のみを取得
+      now = now
+        .toJSON()
+        .split('T')[1]
+        .slice(0, 5) // 時刻のみを取得
 
       // メッセージオブジェクトを作る
       let message = {
         user: this.socket.id,
         date: now,
-        text: this.message.trim(),
+        text: this.message.trim()
       }
 
       // 自身（Vueインスタンス）のデータオブジェクトにメッセージを追加する
