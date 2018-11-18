@@ -3,10 +3,10 @@
     <div>
       <!-- <logo/> -->
       <h1 class="title">
-        handson
+        showKs portal
       </h1>
       <h2 class="subtitle">
-        My stellar Nuxt.js project
+        Just a sample portal app
       </h2>
     </div>
   </section>
