@@ -1,39 +1,35 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
+      <!-- <logo/> -->
       <h1 class="title">
-        showks-portal
+        showKs portal
       </h1>
       <h2 class="subtitle">
-        A portal app for showKs
+        Just a sample portal app
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Logo from '~/components/Logo.vue'
+if (process.browser) {
+  require('ie-buster')
+}
+import io from 'socket.io-client'
+const socket = io('http://localhost:8080', {
+  path: '/notification'
+})
 
 export default {
-  components: {
-    Logo
-  }
+  //   components: {
+  //     Logo
+  //   }
 }
 </script>
 
 <style>
-
 .container {
   min-height: 100vh;
   display: flex;
