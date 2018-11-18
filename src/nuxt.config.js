@@ -153,8 +153,7 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    vendor: ['ie-buster']
+    }
   },
   modules: ['@nuxtjs/pwa'],
   workbox: {
