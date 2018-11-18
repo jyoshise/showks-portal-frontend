@@ -18,7 +18,7 @@ if (process.browser) {
   require('ie-buster')
 }
 import io from 'socket.io-client'
-const socket = io('http://localhost:8080', {
+const socket = io(process.env.VUE_APP_SECRET_PROTOCOL + process.env.APP_SECRET_HOST, {
   path: '/notification'
 })
 
