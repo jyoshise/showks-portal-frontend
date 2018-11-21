@@ -1,6 +1,6 @@
 # showks-portal
 
-> A portal app for showKs
+> A portal app for showKs.
 
 ## Branch
 
