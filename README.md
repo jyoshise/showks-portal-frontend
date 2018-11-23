@@ -1,4 +1,4 @@
-# showks-portal
+# showks-portal-frontend
 
 > A portal app for showKs.
 
