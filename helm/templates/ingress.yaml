@@ -14,3 +14,10 @@ spec:
         backend:
           serviceName: {{ .Chart.Name }}
           servicePort: 3000
+  - host: portal.prod.showks.containerdays.jp
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ .Chart.Name }}
+          servicePort: 3000
