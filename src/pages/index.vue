@@ -8,25 +8,27 @@
       <h2 class="subtitle">
         Just a sample portal app
       </h2>
-      <el-row>
-        <el-col
-          v-for="(o, index) in 6"
-          :span="4"
-          :key="o"
-          :offset="index > 0 ? 3 : 0">
-          <el-card :body-style="{ padding: '0px' }">
-            <img
-              src="/img/container.png"
-              class="image">
-            <div style="padding: 14px;">
-              <span>Yummy container</span>
-              <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
+      <div>
+        <el-row>
+          <el-col
+            v-for="(o, index) in 6"
+            :span="4"
+            :key="o"
+            :offset="index > 0 ? 3 : 0">
+            <el-card :body-style="{ padding: '0px' }">
+              <img
+                src="/img/container.png"
+                class="image">
+              <div style="padding: 14px;">
+                <span>Yummy container</span>
+                <div class="bottom clearfix">
+                  <time class="time">{{ currentDate }}</time>
+                </div>
               </div>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </section>
 </template>
