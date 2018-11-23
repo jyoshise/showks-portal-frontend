@@ -19,7 +19,7 @@
               src="/img/container.png"
               class="image">
             <div style="padding: 14px;">
-              <span>Yummy hamburger</span>
+              <span>Yummy container</span>
               <div class="bottom clearfix">
                 <time class="time">{{ currentDate }}</time>
               </div>
