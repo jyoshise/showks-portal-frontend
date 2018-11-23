@@ -8,24 +8,68 @@
       <h2 class="subtitle">
         Just a sample portal app
       </h2>
+      <el-row>
+        <el-col
+          v-for="(o, index) in 6"
+          :span="4"
+          :key="o"
+          :offset="index > 0 ? 3 : 0">
+          <el-card :body-style="{ padding: '0px' }">
+            <img
+              src="/img/container.png"
+              class="image">
+            <div style="padding: 14px;">
+              <span>Yummy container</span>
+              <div class="bottom clearfix">
+                <time class="time">{{ currentDate }}</time>
+              </div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
     </div>
   </section>
 </template>
 
+<style>
+.time {
+  font-size: 13px;
+  color: #999;
+}
+
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: '';
+}
+
+.clearfix:after {
+  clear: both;
+}
+</style>
 <script>
 // import Logo from '~/components/Logo.vue'
-if (process.browser) {
-  require('ie-buster')
-}
 import io from 'socket.io-client'
 const socket = io('http://localhost:8080', {
   path: '/notification'
 })
 
 export default {
-  //   components: {
-  //     Logo
-  //   }
+  data() {
+    return {
+      currentDate: new Date()
+    }
+  }
 }
 </script>
 
