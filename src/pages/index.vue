@@ -58,16 +58,45 @@
 }
 </style>
 <script>
-// import Logo from '~/components/Logo.vue'
-import io from 'socket.io-client'
-const socket = io('http://localhost:8080', {
-  path: '/notification'
-})
-
+import Instances from '~/components/Instances.vue'
+import axios from 'axios'
+const BASE_URL = 'http://aggregator.stg.showks.containerdays.jp/'
 export default {
+  layout: 'default',
+  components: {
+    // 投稿一覧を表示するコンポーネント
+    Instances
+  },
+  data() {
+    return {}
+  },
   data() {
     return {
-      currentDate: new Date()
+      currentDate: new Date(),
+      instances: [],
+      hasData: true
+    }
+  },
+  created() {
+    // 初回ページ描画時にキーワード「nuxt.js」でQiitaのAPIをコール
+    this.sendRequest()
+  },
+  methods: {
+    // リクエスト送信
+    sendRequest() {
+      axios
+        .get(BASE_URL + 'iteinstancesms', {
+          headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => {
+          if (response.data.length === 0) {
+            this.hasData = false
+          }
+          this.instances = response.data
+        })
+        .catch(e => {
+          console.error('error:', e)
+        })
     }
   }
 }
