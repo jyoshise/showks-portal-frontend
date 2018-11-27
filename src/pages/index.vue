@@ -87,7 +87,7 @@ export default {
     // リクエスト送信
     sendRequest() {
       axios
-        .get(BASE_URL + 'iteinstancesms', {
+        .get(BASE_URL + 'instances', {
           headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {
