@@ -1,7 +1,7 @@
 {
   "name": "showks-portal-frontend",
   "version": "1.0.0",
-  "description": "A portal app for showKs",
+  "description": "Portal app for showKs",
   "author": "inductor",
   "private": true,
   "scripts": {
