@@ -30,7 +30,7 @@ module.exports = {
       {
         hid: 'og:description',
         name: 'og:description',
-        content: 'Sample portal app for showKs'
+        content: 'Portal app for showKs'
       },
       // {
       //   hid: "og:image",
@@ -87,22 +87,9 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon-16x16.png',
+        href: '/favicon.png',
         sizes: '16x16'
-      },
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon-32x32.png',
-        sizes: '32x32'
-      },
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon-96x96.png',
-        sizes: '96x96'
       }
-    ]
   },
 
   /*
@@ -164,8 +151,8 @@ module.exports = {
     short_name: 'showKs Portal',
     title: 'showKs Portal',
     'og:title': 'showKs Portal',
-    description: 'showKs Portal',
-    'og:description': 'showKs Portal',
+    description: 'Portal app for showKs',
+    'og:description': 'Portal app for showKs',
     lang: 'ja',
     theme_color: '#ffffff',
     background_color: '#ffffff'
