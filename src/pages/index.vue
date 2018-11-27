@@ -16,8 +16,14 @@
               class="image"></a>
             <div style="padding: 14px;">
               <span>{{ instance.author.userName }}</span>
+              <span><a
+                :href="'https://twitter.com/' + instance.author.twitterId" 
+                target="_blank"><font-awesome-icon
+                  :icon="['fab', 'twitter']" 
+                  class="icon alt"/></a></span>
+              <p>{{ instance.author.comment }}</p>
               <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
+                <time class="time">{{ currentDate(instance.createdAt) }}</time>
               </div>
             </div>
           </el-card>
@@ -37,9 +43,9 @@ export default {
     const instances = await response.json()
     return { instances }
   },
-  data() {
+  data(createdAt) {
     return {
-      currentDate: new Date()
+      currentDate: new Date(createdAt)
     }
   }
 }
