@@ -19,8 +19,13 @@ spec:
         - name: {{ .Chart.Name }}
           image: gcr.io/ipc-containerdays/{{ .Chart.Name }}:{{ .Values.image.tag }}
           env:
+            - name: DOMAIN
+              valueFrom:
+                configMapKeyRef:
+                  name: showks-config
+                  key: domain
             - name: AGGREGATOR_URL
-              value: http://aggregator{{ .Values.vhostDomain }}
+              value: http://aggregator$(DOMAIN)
           ports:
             - name: app-port
               containerPort: 3000
