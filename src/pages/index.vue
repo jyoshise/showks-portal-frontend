@@ -12,7 +12,7 @@
         >
           <el-card :body-style="{ padding: '0px' }">
             <a :href="instance.linkUrl"><img
-              :src="instance.thumbNailUrl"
+              :src="'http://aggregator.stg.showks.containerdays.jp' + instance.thumbnailUrl"
               class="image"></a>
             <div style="padding: 14px;">
               <span>{{ instance.author.userName }}</span>
