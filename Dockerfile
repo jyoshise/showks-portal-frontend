@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 # Bundle app source
 COPY src .
-RUN yarn && yarn build
+RUN rm -rf yarn.lock && npm -g install yarn && yarn && yarn build
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
