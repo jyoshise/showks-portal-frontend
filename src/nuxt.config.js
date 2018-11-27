@@ -90,6 +90,7 @@ module.exports = {
         href: '/favicon.png',
         sizes: '16x16'
       }
+    ]
   },
 
   /*
