@@ -18,6 +18,9 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: gcr.io/ipc-containerdays/{{ .Chart.Name }}:{{ .Values.image.tag }}
+          env:
+            - name: AGGREGATOR_URL
+              value: http://aggregator{{ .Values.vhostDomain }}
           ports:
             - name: app-port
               containerPort: 3000
