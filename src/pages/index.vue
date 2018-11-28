@@ -7,9 +7,9 @@
       <el-row>
         <el-col
           v-for="instance in instances"
-          :span="4"
+          :span="6"
           :key="instance.id">
-          <el-card :body-style="{ padding: '0px' }">
+          <el-card class="card">
             <a :href="instance.linkUrl">
               <img
                 :src="'http://aggregator.stg.showks.containerdays.jp' + instance.thumbnailUrl"
@@ -17,8 +17,7 @@
               >
             </a>
             <div style="padding: 14px;">
-              <span>{{ instance.author.userName }}</span>
-              <span>
+              <el-tag type="info">{{ instance.author.userName }}
                 <a
                   :href="'https://twitter.com/' + instance.author.twitterId"
                   target="_blank">
@@ -26,8 +25,14 @@
                     :icon="['fab', 'twitter']"
                     class="icon alt"/>
                 </a>
-              </span>
-              <p>{{ instance.author.comment }}</p>
+                <a
+                  :href="'https://github.com/' + instance.author.gitHubId"
+                  target="_blank">
+                  <font-awesome-icon
+                    :icon="['fab', 'github']"
+                    class="icon alt"/>
+              </a></el-tag>
+              <el-tag>{{ instance.author.comment }}</el-tag>
               <div class="bottom clearfix">
                 <time class="time">{{ dateFormat(instance.createdAt ) }}</time>
               </div>
@@ -78,6 +83,8 @@ export default {
 <style>
 .container {
   min-height: 100vh;
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,6 +120,21 @@ export default {
 .image {
   width: 100%;
   display: block;
+}
+.card {
+  margin: 5px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .clearfix:before,
 .clearfix:after {
