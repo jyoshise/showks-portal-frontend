@@ -8,16 +8,28 @@
         <el-col
           v-for="instance in instances"
           :span="4"
-          :key="instance.id"
-        >
+          :key="instance.id">
           <el-card :body-style="{ padding: '0px' }">
-            <a :href="instance.linkUrl"><img
-              :src="'http://aggregator.stg.showks.containerdays.jp' + instance.thumbnailUrl"
-              class="image"></a>
+            <a :href="instance.linkUrl">
+              <img
+                :src="'http://aggregator.stg.showks.containerdays.jp' + instance.thumbnailUrl"
+                class="image"
+              >
+            </a>
             <div style="padding: 14px;">
               <span>{{ instance.author.userName }}</span>
+              <span>
+                <a
+                  :href="'https://twitter.com/' + instance.author.twitterId"
+                  target="_blank">
+                  <font-awesome-icon
+                    :icon="['fab', 'twitter']"
+                    class="icon alt"/>
+                </a>
+              </span>
+              <p>{{ instance.author.comment }}</p>
               <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
+                <time class="time">{{ dateFormat(instance.createdAt ) }}</time>
               </div>
             </div>
           </el-card>
@@ -37,9 +49,27 @@ export default {
     const instances = await response.json()
     return { instances }
   },
-  data() {
-    return {
-      currentDate: new Date()
+  methods: {
+    dateFormat(createdAt) {
+      const date = new Date(createdAt)
+      const y = date.getFullYear()
+      const m = date.getMonth() + 1
+      const d = date.getDate()
+      const h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+      const i =
+        date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+      const s =
+        date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
+
+      if (m < 10) {
+        m = '0' + m
+      }
+      if (d < 10) {
+        d = '0' + d
+      }
+
+      // フォーマット整形済みの文字列を戻り値にする
+      return y + '/' + m + '/' + d + ' ' + h + ':' + i + ':' + s
     }
   }
 }
